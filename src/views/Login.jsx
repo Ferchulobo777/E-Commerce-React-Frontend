@@ -11,7 +11,7 @@ const Login = () => {
       <p className="text-center font-bold text-4xl mt-48">
         Welcome! Enter your email and password to continue
       </p>
-      <div className="bg-blue-300 w-3/4 mt-20 rounded-lg border-2 border-black">
+      <div className="bg-blue-300 w-3/4 mt-20 rounded-lg border-2 border-black lg:w-1/2">
         <h2 className="text-center font-bold p-4 text-lg">Test Data</h2>
         <p className="text-center p-4 font-semibold text-md mx-2">Email: fernando@gmail.com</p>
         <p className="text-center p-4 font-semibold text-lg">Password: fer1234</p>
