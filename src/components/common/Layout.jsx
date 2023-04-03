@@ -1,13 +1,12 @@
 import React from 'react';
 import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
+import Header from './Header';
 
 const Layout = () => {
   return (
     <>
-      <header className="flex flex-col justify-center items-center mb-10 bg-black h-20">
-        Header
-      </header>
+      <Header />
       <main>
         <Outlet />
       </main>
