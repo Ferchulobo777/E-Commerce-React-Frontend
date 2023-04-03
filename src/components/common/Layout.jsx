@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
@@ -10,9 +11,7 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <footer className="flex flex-col justify-start items-center mt-10 bg-black h-52">
-        Footer
-      </footer>
+      <Footer />
     </>
   );
 };
