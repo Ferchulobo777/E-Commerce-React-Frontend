@@ -6,6 +6,7 @@ import Login from '../views/Login';
 import Purchases from '../views/Purchases';
 import ProductDetail from '../views/ProductDetail';
 import NotFound from '../views/NotFound';
+import { loaderHome } from './loaders/loaderHome';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
+        loader: loaderHome,
       },
       {
         path: '/login',
