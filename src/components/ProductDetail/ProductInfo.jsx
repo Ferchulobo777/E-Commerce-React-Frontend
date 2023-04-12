@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProductInfo = ({product}) => {
+const ProductInfo = ({ product }) => {
   const [counter, setCounter] = useState(1);
   const lessOne = () => {
     const newCounter = counter - 1;
@@ -8,7 +8,7 @@ const ProductInfo = ({product}) => {
   };
   return (
     <section className="mt-40 flex flex-col ">
-      <div>
+      <div className="carrusel">
         {product.productImgs.map((urlImg) => (
           <img className="w-1/4" src={urlImg} key={urlImg} alt="" />
         ))}

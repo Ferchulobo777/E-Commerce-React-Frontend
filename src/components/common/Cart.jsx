@@ -3,7 +3,7 @@ import React from 'react';
 const Cart = ({ isVisible }) => {
   return (
     <div className="fixed inset-0 bg-black/30">
-      <section className="fixed z-10 mt-3 top-28 right-0 h-full bg-orange-400/80 w-2/5 p-3">
+      <section className="fixed z-10 mt-3 top-28 right-0 h-full bg-orange-400/80 w-2/4 p-3">
         <h2>Shopping Cart</h2>
         <ul className="mt-5">
           <li>
@@ -39,7 +39,7 @@ const Cart = ({ isVisible }) => {
             <span>Total:</span>
             <span>$ 1000.00</span>
           </p>
-          <button className="bg-black text-orange-400 w-full p-2 mt-6 font-extrabold text-2xl rounded-lg flex justify-center mask">
+          <button className="bg-black text-orange-400 w-full p-2 mt-6 font-extrabold text-2xl rounded-lg flex justify-center btn-cart">
             Buy Product
           </button>
         </section>
