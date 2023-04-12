@@ -80,7 +80,7 @@ const Home = () => {
           </button>
         </Form>
       </section>
-      <section className="w-full flex px-8 py-2 flex-col">
+      <section className="w-full flex px-2 py-2 flex-col">
         <ul className="flex flex-row flex-wrap justify-evenly items-center gap-4 w-full">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />

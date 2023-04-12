@@ -37,7 +37,7 @@ const ProductDetail = () => {
   }, []);
 
   return (
-    <div className="p-10">
+    <div className="p-6">
       {!product ? (
         <div class="sk-cube-grid">
           <div class="sk-cube sk-cube1"></div>
@@ -101,7 +101,7 @@ const ProductDetail = () => {
           </div>
         </section>
       )}
-      <section className="w-full flex px-8 py-2 flex-col">
+      <section className="w-full flex flex-col">
         <ul className="flex flex-row flex-wrap justify-evenly items-center gap-4 w-full">
           <h2 className="text-2xl text-center mt-10 w-full">Discover similar items</h2>
           {relatedProducts.map((product) => (
