@@ -12,10 +12,10 @@ const ProductCard = ({ product }) => {
     <article
       key={product.id}
       onClick={() => navigate(`/products/${product.id}`)}
-      className="max-w-[300px] bg-white p-4 cursor-pointer product-card"
+      className="w-11/12 sm:w-3/5 lg:w-2/5 xl:w-1/4 bg-white p-10 cursor-pointer product-card m-10"
     >
       <div>
-        <img src={product.productImgs[0]} alt={product.title} />
+        <img className="w-52 h-52" src={product.productImgs[0]} alt={product.title} />
       </div>
       <div>
         <h2 className="text-semibold text-xl">{product.title}</h2>
