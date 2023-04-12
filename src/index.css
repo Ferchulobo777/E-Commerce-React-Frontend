@@ -14,18 +14,23 @@ body {
   background: linear-gradient(to right, #434343, #000000);
   height: 120px;
 }
-img {
-    overflow-clip-margin: content-box;
-    overflow: clip;
-    overflow-x: ;
-    overflow-y: ;
-}
 .product-card{
-  display: block;
-    height: 80%;
-    margin: 0 auto;
-    object-fit: contain;
-    width: 80%;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 2) inset;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+h2{
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+  from(rgba(0,0,0,1)), to(rgba(0,0,0,0.5)));
+  text-shadow: 1px 1px 2px black; 
+}
+.mask{
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+  from(rgba(0,0,0,1)), to(rgba(0,0,0,0.3)));
+  text-shadow: 1px 1px 2px black;
 }
 .button{
     width: 6.5%;

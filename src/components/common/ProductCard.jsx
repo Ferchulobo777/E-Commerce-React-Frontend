@@ -12,9 +12,9 @@ const ProductCard = ({ product }) => {
     <article
       key={product.id}
       onClick={() => navigate(`/products/${product.id}`)}
-      className="max-w-[250px] bg-slate-400 p-4 cursor-pointer product-card"
+      className="max-w-[300px] bg-white p-4 cursor-pointer product-card"
     >
-      <div className="h-3/4">
+      <div>
         <img src={product.productImgs[0]} alt={product.title} />
       </div>
       <div>

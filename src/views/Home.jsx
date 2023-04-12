@@ -76,7 +76,7 @@ const Home = () => {
         </Form>
       </section>
       <section className="w-full flex px-8 py-2">
-        <ul className="flex flex-row flex-wrap justify-evenly items-center w-full">
+        <ul className="flex flex-row flex-wrap justify-evenly items-center gap-4 w-full">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
