@@ -9,8 +9,8 @@ const ProductInfo = ({ product }) => {
   return (
     <section className="mt-40 flex flex-col ">
       <div className="carrusel">
-        {product.productImgs.map((urlImg) => (
-          <img className="w-1/4" src={urlImg} key={urlImg} alt="" />
+        {product.images.map((img) => (
+          <img className="w-1/4" src={img.url} key={img.id} alt="" />
         ))}
       </div>
       <div className="flex flex-col">

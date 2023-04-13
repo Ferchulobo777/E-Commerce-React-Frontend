@@ -5,15 +5,15 @@ import Header from './Header';
 import Cart from './Cart';
 
 const Layout = () => {
-  const [isCartVisible, setCartVisible] = useState(false);
+  const [isCartVisible, setIsCartVisible] = useState(false);
   return (
     <>
-      <Header isVisible={isCartVisible} setIsVisible={setCartVisible} />
+      <Header isVisible={isCartVisible} setIsVisible={setIsCartVisible} />
       <main>
         <Outlet />
-        <Cart isVisible={isCartVisible} />
       </main>
       <Footer />
+      <Cart isVisible={isCartVisible} />
     </>
   );
 };

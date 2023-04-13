@@ -1,10 +1,12 @@
-import { AxiosInstance } from '../api/axiosInstance';
+import { axiosInstance } from '../api/axiosInstance';
 
 export const getCart = async (token) => {
   try {
-    const res = await AxiosInstance.get('cart', {
+    const res = await axiosInstance.get('cart', {
       headers: { Authorization: `Bearer ${token}` },
     });
+
+    return res.data;
   } catch (error) {
     console.error(error);
   }

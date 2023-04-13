@@ -1,9 +1,16 @@
 import React from 'react';
 
 const Cart = ({ isVisible }) => {
+  const toggleTransform = isVisible ? 'translate-x-0' : '';
+
   return (
-    <div className="fixed inset-0 bg-black/30">
-      <section className="fixed z-10 mt-3 top-28 right-0 h-full bg-orange-400/80 w-3/4 p-3">
+    <div
+      className={
+        'fixed inset-0 top-28 bg-[rgba(0,0,0,0.45)] transition-transform duration-500 backdrop-blur-sm translate-x-full' +
+        toggleTransform
+      }
+    >
+      <section className="absolute right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col">
         <h2>Shopping Cart</h2>
         <ul className="mt-5">
           <li>

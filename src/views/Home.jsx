@@ -14,7 +14,6 @@ const Home = () => {
 
   const handleChangeName = (e) => {
     setnameValue(e.target.value);
-    setcategoryValue(null);
   };
 
   useEffect(() => {
@@ -69,7 +68,6 @@ const Home = () => {
                   style={{ display: 'none' }}
                   onChange={() => {
                     setcategoryValue(category);
-                    setnameValue('');
                   }}
                 />
               </div>

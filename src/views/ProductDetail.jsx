@@ -16,13 +16,10 @@ const ProductDetail = () => {
   useEffect(() => {
     const loadData = async () => {
       const productData = await getProductId(id);
-      const categories = await getCategories();
-      const targetCategory = categories.find(
-        (category) => category.name === productData.category,
-      );
+      const categoryId = productData.categoryId;
 
       const relatedProductsData = await getAllProducts({
-        category: targetCategory.id,
+        categoryId,
       });
 
       const relatedProductsWithoutTargetProduct = relatedProductsData.filter(
@@ -34,7 +31,7 @@ const ProductDetail = () => {
     };
 
     loadData();
-  }, []);
+  }, [id]);
 
   return (
     <div className="p-6">
