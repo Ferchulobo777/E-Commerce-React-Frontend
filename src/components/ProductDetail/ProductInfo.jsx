@@ -10,7 +10,8 @@ const ProductInfo = ({ product }) => {
   };
 
   return (
-    <section className="mt-40 flex flex-col justify-center items-center">
+    <section className="flex flex-col justify-center items-center">
+      <h2 className="text-4xl text-center mb-20">{product.title}</h2>
       <Carousel showArrows={true}>
         {product.images.map((img) => (
           <div

@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
         </div>
         <button
           onClick={handleAddProductBtn}
-          className="cursor-pointer w-2/4 h-10 bg-orange-400 rounded-lg btn-search mt-3 font-bold"
+          className="cursor-pointer w-3/4 h-16 bg-orange-400 rounded-lg btn-search mt-5 font-bold ml-5"
         >
           Add to Cart <i className="fa-solid fa-cart-shopping mask"></i>
         </button>
