@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = ({ isVisible, setIsVisible }) => {
   return (
     <header className="flex flex-row mb-6 header w-full sticky top-0 h-28">
-      <nav className="flex flex-row flex-wrap gap-6 w-full items-center border-4 border-orange-400 outline outline-black rounded-sm">
+      <nav className="flex flex-row flex-wrap gap-2 lg:gap-20 w-full items-center border-4 border-orange-400 outline outline-black rounded-sm">
         <h2 className="flex w-1/2 text-2xl text-white p-4 sm:text-3xl sm:1/2">
           <Link to="/">e-commerce</Link>
         </h2>
