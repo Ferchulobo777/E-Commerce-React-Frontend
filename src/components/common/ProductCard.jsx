@@ -1,9 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-
+  const { isLogged, token } = useSelector((state) => state.user);
   const handleAddProductBtn = (e) => {
     e.stopPropagation();
   };

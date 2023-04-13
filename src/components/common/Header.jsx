@@ -22,7 +22,6 @@ const Header = ({ isVisible, setIsVisible }) => {
           className="p-4 h-full button text-white text-2xl flex justify-center items-center sm:ml-8 md:ml-12 lg:ml-16 xl:ml-24 2xl:ml-28"
           onClick={() => {
             setIsVisible(!isVisible);
-            console.log(isVisible);
           }}
         >
           <i className="fa-solid fa-cart-shopping mask"></i>

@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadCartProducts } from '../../store/slices/cartSlice';
+import CartProduct from './CartProduct';
+import Loader from '../common/Loader';
 
 const Cart = ({ isVisible }) => {
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.user.token);
+  const cart = useSelector((state) => state.cart);
   const toggleTransform = isVisible ? 'translate-x-0' : '';
+
+  useEffect(() => {
+    //Ejecutar carga de los productos del Carrito
+    if (isVisible) dispatch(loadCartProducts(token));
+  }, [isVisible]);
 
   return (
     <div
@@ -10,37 +22,21 @@ const Cart = ({ isVisible }) => {
         toggleTransform
       }
     >
-      <section className="absolute right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col">
-        <h2>Shopping Cart</h2>
-        <ul className="mt-5">
-          <li>
-            <article>
-              <div className="flex flex-row gap-5">
-                <div>
-                  <img src="" alt="" />
-                  <span>Image</span>
-                </div>
-                <div>
-                  <h2>Product Name</h2>
-                  <div className="flex flex-row gap-2 mt-2">
-                    <button className="flex items-center justify-center text-2xl bg-orange-400 w-10 rounded-lg py-1 border border-black btn-search font-black">
-                      -
-                    </button>
-                    <span className="text-2xl bg-white border-2 border-black rounded w-10 text-center text-orange-400 py-1">
-                      1
-                    </span>
-                    <button className="text-center text-2xl bg-orange-400 w-10 rounded-lg py-1 border border-black btn-search font-bold">
-                      +
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <p className="text-right mt-2">
-                <span>Total:</span>$ 1000.00
-              </p>
-            </article>
-          </li>
-        </ul>
+      <section className="absolute right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col border-2 border-black rounded-md">
+        <h2 className="text-center text-xl">Shopping Cart</h2>
+        <div className="mt-5 flex-grow">
+          {cart.loading && <Loader />}
+          {!cart.loading && !cart.products.length && <p>Your cart es Empty</p>}
+          {!cart.loading && cart.products.length && (
+            <ul>
+              {cart.products.map((product) => (
+                <li key={product.id}>
+                  <CartProduct product={product} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
         <section className="flex justify-center w-full flex-col mt-52">
           <p className="text-left mt-2 flex flex-row justify-between w-full">
             <span>Total:</span>
