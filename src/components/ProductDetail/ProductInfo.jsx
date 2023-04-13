@@ -13,8 +13,15 @@ const ProductInfo = ({ product }) => {
     <section className="mt-40 flex flex-col justify-center items-center">
       <Carousel showArrows={true}>
         {product.images.map((img) => (
-          <div className="w-1/2 h-60 flex flex-row justify-center" key={img.id}>
-            <img className="flex justify-center items-center" src={img.url} alt="" />
+          <div
+            className="w-1/2 h-60 flex flex-row justify-center object-contain"
+            key={img.id}
+          >
+            <img
+              className="flex justify-center items-center object-contain"
+              src={img.url}
+              alt=""
+            />
           </div>
         ))}
       </Carousel>
