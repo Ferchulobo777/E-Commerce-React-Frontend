@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ProductInfo = ({ product }) => {
   const [counter, setCounter] = useState(1);
@@ -6,17 +8,20 @@ const ProductInfo = ({ product }) => {
     const newCounter = counter - 1;
     if (newCounter >= 1) setCounter(newCounter);
   };
+
   return (
-    <section className="mt-40 flex flex-col ">
-      <div className="carrusel">
+    <section className="mt-40 flex flex-col justify-center items-center">
+      <Carousel showArrows={true}>
         {product.images.map((img) => (
-          <img className="w-1/4" src={img.url} key={img.id} alt="" />
+          <div className="w-1/2 h-60 flex flex-row justify-center" key={img.id}>
+            <img className="flex justify-center items-center" src={img.url} alt="" />
+          </div>
         ))}
-      </div>
+      </Carousel>
       <div className="flex flex-col">
-        <h2 className="text-2xl">{product.title}</h2>
+        <h2 className="text-2xl text-center">{product.title}</h2>
         <section>
-          <h2 className="mt-5 text-xl">Description</h2>
+          <h2 className="mt-5 text-xl text-center">Description</h2>
           <p className="text-justify mt-5 text-lg font-semibold">{product.description}</p>
         </section>
         <section className="flex flex-row flex-wrap gap-20 justify-evenly mt-10">
