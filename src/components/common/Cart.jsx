@@ -22,11 +22,13 @@ const Cart = ({ isVisible }) => {
         toggleTransform
       }
     >
-      <section className="absolute right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col border-2 border-black rounded-md">
-        <h2 className="text-center text-xl">Shopping Cart</h2>
+      <section className="absolute right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col border-2 border-black rounded-md modal-cart">
+        <h2 className="text-center text-xl font-semibold">Shopping Cart</h2>
         <div className="mt-5 flex-grow">
           {cart.loading && <Loader />}
-          {!cart.loading && !cart.products.length && <p>Your cart es Empty</p>}
+          {!cart.loading && !cart.products.length && (
+            <h2 className="text-md font-bold">Your cart es Empty</h2>
+          )}
           {!cart.loading && cart.products.length && (
             <ul>
               {cart.products.map((product) => (
@@ -38,12 +40,12 @@ const Cart = ({ isVisible }) => {
           )}
         </div>
         <section className="flex justify-center w-full flex-col mt-52">
-          <p className="text-left mt-2 flex flex-row justify-between w-full">
+          <h2 className="text-left mt-2 flex flex-row justify-between w-full">
             <span>Total:</span>
             <span>$ 1000.00</span>
-          </p>
+          </h2>
           <button className="bg-black text-orange-400 w-full p-2 mt-6 font-extrabold text-2xl rounded-lg flex justify-center btn-cart">
-            Buy Product
+            <span className="mask">Buy Product</span>
           </button>
         </section>
       </section>

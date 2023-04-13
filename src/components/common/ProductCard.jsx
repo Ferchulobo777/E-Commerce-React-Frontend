@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
       <div>
         <h2 className="text-semibold text-xl mt-5">{product.title}</h2>
         <div className="flex flex-row justify-between mt-3">
-          <h3 className="mask">Price</h3>
+          <h3 className="mask text-xl font-semibold">Price</h3>
           <p className="text-xl font-semibold">
             <span className="text-orange-400 text-xl font-bold">$</span> {product.price}
           </p>
@@ -34,7 +34,7 @@ const ProductCard = ({ product }) => {
           onClick={handleAddProductBtn}
           className="cursor-pointer w-2/4 h-10 bg-orange-400 rounded-lg btn-search mt-3 font-bold"
         >
-          Add to Cart
+          Add to Cart <i className="fa-solid fa-cart-shopping mask"></i>
         </button>
       </div>
     </article>
