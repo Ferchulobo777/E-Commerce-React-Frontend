@@ -1,12 +1,42 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {
+  addProductToCart,
+  updateQuantityProductCart,
+} from '../../store/slices/cart.slice';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const ProductInfo = ({ product }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isLogged, token } = useSelector((state) => state.user);
+  const cart = useSelector((state) => state.cart);
   const [counter, setCounter] = useState(1);
+
+  const cartProduct = cart.product.find((x) => x.id === product.id);
+
   const lessOne = () => {
     const newCounter = counter - 1;
     if (newCounter >= 1) setCounter(newCounter);
+  };
+
+  const handleAddCart = () => {
+    if (!isLogged) navigate('/login');
+    else if (cartProduct) {
+      dispatch(
+        updateQuantityProductCart({
+          token,
+          cartProductId: cartProduct.cartId,
+          quantity: cartProduct.quantity + counter,
+        }),
+      );
+      setCounter(1);
+    } else {
+      dispatch(addProductToCart({ token, productId: product.id, quantity: counter }));
+      setCounter(1);
+    }
   };
 
   return (
@@ -61,8 +91,13 @@ const ProductInfo = ({ product }) => {
           </div>
         </section>
         <div className="flex justify-center mt-10">
-          <button className="flex justify-evenly items-center w-48 h-10 bg-orange-400 rounded-lg text-lg font-bold border-2 border-black btn-search">
-            Add to cart <i className="fa-solid fa-cart-shopping mask"></i>
+          <button
+            onClick={handleAddCart}
+            disabled={cart.loading}
+            className="flex justify-evenly items-center w-48 h-10 bg-orange-400 rounded-lg text-lg font-bold border-2 border-black btn-search"
+          >
+            Add to cart
+            <i className="fa-solid fa-cart-shopping mask"></i>
           </button>
         </div>
       </div>

@@ -10,6 +10,11 @@ const Cart = ({ isVisible }) => {
   const cart = useSelector((state) => state.cart);
   const toggleTransform = isVisible ? 'translate-x-0' : '';
 
+  const total = cart.products.reduce(
+    (sum, product) => sum + product.quantity * Number(product.price),
+    0,
+  );
+
   useEffect(() => {
     //Ejecutar carga de los productos del Carrito
     if (isVisible) dispatch(loadCartProducts(token));
@@ -42,7 +47,7 @@ const Cart = ({ isVisible }) => {
         <section className="flex justify-center w-full flex-col mt-52">
           <h2 className="text-left mt-2 flex flex-row justify-between w-full">
             <span>Total:</span>
-            <span>$ 1000.00</span>
+            <span>$ {total}</span>
           </h2>
           <button className="bg-black text-orange-400 w-full p-2 mt-6 font-extrabold text-2xl rounded-lg flex justify-center btn-cart">
             <span className="mask">Buy Product</span>
