@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addProductToCart } from '../../store/slices/cart.slice';
+import { motion } from 'framer-motion';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
@@ -20,11 +21,33 @@ const ProductCard = ({ product }) => {
     else navigate('/login');
   };
 
+  const cardVariants = {
+    hover: {
+      y: -5,
+      boxShadow: '5px 5px 15px 10px rgba(0, 0, 0, 0.2) inset',
+      transition: {
+        duration: 0.2,
+        ease: 'easeInOut',
+      },
+    },
+    initial: {
+      y: 0,
+      boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)',
+      transition: {
+        duration: 0.2,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
   return (
-    <article
+    <motion.article
       key={product.id}
       onClick={() => navigate(`/products/${product.id}`)}
-      className="w-11/12 sm:w-3/5 lg:w-2/5 xl:w-1/4 bg-white p-10 cursor-pointer product-card m-10 object-contain max-h-[440px] min-h-[440px]"
+      className="w-11/12 sm:w-3/5 lg:w-2/5 xl:w-1/4 bg-white p-10 cursor-pointer product-card m-10 object-contain max-h-[470px] min-h-[470px]"
+      variants={cardVariants}
+      initial="initial"
+      whileHover="hover"
     >
       <div>
         <img
@@ -52,7 +75,7 @@ const ProductCard = ({ product }) => {
         )}
         {isProductInCart && <h2>This products is the cart</h2>}
       </div>
-    </article>
+    </motion.article>
   );
 };
 
