@@ -13,7 +13,9 @@ const Login = () => {
       </h2>
       <div className="bg-orange-400 w-3/4 mt-20 rounded-lg border-2 border-black lg:w-1/2 login">
         <h2 className="text-center font-bold p-4 text-xl">Test Data</h2>
-        <p className="text-center p-4 font-semibold text-lg mx-2">Email: fernando@gmail.com</p>
+        <p className="text-center p-4 font-semibold text-lg mx-2">
+          Email: fernando@gmail.com
+        </p>
         <p className="text-center p-4 font-semibold text-lg">Password: fer1234</p>
       </div>
       <LoginForm />

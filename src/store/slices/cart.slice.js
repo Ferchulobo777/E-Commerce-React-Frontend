@@ -65,7 +65,7 @@ export const buyCart =
   ({ token }) =>
   async (dispatch) => {
     dispatch(setCartLoading(true));
-    await createPurchase(token);
+    await createPurchase({ token });
 
     dispatch(loadCartProducts(token));
   };

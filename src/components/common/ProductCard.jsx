@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
     <article
       key={product.id}
       onClick={() => navigate(`/products/${product.id}`)}
-      className="w-11/12 sm:w-3/5 lg:w-2/5 xl:w-1/4 bg-white p-10 cursor-pointer product-card m-10 object-contain"
+      className="w-11/12 sm:w-3/5 lg:w-2/5 xl:w-1/4 bg-white p-10 cursor-pointer product-card m-10 object-contain max-h-[440px] min-h-[440px]"
     >
       <div>
         <img

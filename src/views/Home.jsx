@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     if (isLogged) dispatch(loadCartProducts(token));
-  }, []);
+  }, [dispatch, isLogged, token]);
 
   useEffect(() => {
     setCategoryValue(category);
@@ -29,10 +29,10 @@ const Home = () => {
   }, [title]);
 
   return (
-    <section className="mt-20 flex flex-col justify-center items-center">
-      <section className='flex flex-row justify-around w-full ml-4 mr-4'>
-        <fieldset className="flex flex-col justify-left items-left gap-6 font-bold border border-black w-1/6 login rounded-lg p-4">
-          <legend className="flex text-left text-xl mask w-full">Category</legend>
+    <section className="mt-10 flex flex-col justify-center items-center">
+      <section className="flex flex-col justify-center items-center w-full ">
+        <fieldset className="flex flex-col justify-left items-left gap-6 font-bold w-1/2 login rounded-lg p-4 mb-10">
+          <legend className="flex text-left text-2xl mask w-full">Category</legend>
           {categories.map((category) => (
             <div key={category.id}>
               <label
@@ -65,7 +65,7 @@ const Home = () => {
             Filter
           </button>
         </fieldset>
-        <Form className="flex flex-row w-1/2 gap-96 border border-black items-center login rounded-lg">
+        <Form className="flex flex-row w-full items-center login rounded-lg mb-10">
           <div className="w-full h-12 flex flex-row gap-2 justify-center">
             <input
               type="search"
@@ -81,7 +81,8 @@ const Home = () => {
           </div>
         </Form>
         {isLogged && (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center flex-row gap-5">
+            <i className="fa-solid fa-user text-4xl mt-4 text-orange-400 mask"></i>
             <button
               className="bg-red-500 font-semibold w-20 h-10 hover:saturate-200 border border-black hover:font-bold mt-4 rounded-lg flex justify-center items-center btn-search"
               onClick={() => dispatch(reset())}
