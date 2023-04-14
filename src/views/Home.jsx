@@ -31,40 +31,6 @@ const Home = () => {
   return (
     <section className="mt-10 flex flex-col justify-center items-center">
       <section className="flex flex-col justify-center items-center w-full ">
-        <fieldset className="flex flex-col justify-left items-left gap-6 font-bold w-1/2 login rounded-lg p-4 mb-10">
-          <legend className="flex text-left text-2xl mask w-full">Category</legend>
-          {categories.map((category) => (
-            <div key={category.id}>
-              <label
-                htmlFor={category.id + category.name}
-                className={
-                  categoryValue?.id === category.id
-                    ? 'text-orange-400 font-bold cursor-pointer'
-                    : 'cursor-pointer'
-                }
-              >
-                {category.name}
-              </label>
-              <input
-                type="radio"
-                name="category"
-                value={category.id}
-                checked={categoryValue?.id === category.id}
-                id={category.id + category.name}
-                style={{ display: 'none' }}
-                onChange={() => {
-                  setCategoryValue(category);
-                }}
-              />
-            </div>
-          ))}
-          <button
-            type="submit"
-            className="bg-orange-500 w-32 h-10 rounded-lg font-semibold text-xl border border-black login btn-search"
-          >
-            Filter
-          </button>
-        </fieldset>
         <Form className="flex flex-row w-full items-center login rounded-lg mb-10">
           <div className="w-full h-12 flex flex-row gap-2 justify-center">
             <input
@@ -79,6 +45,40 @@ const Home = () => {
               <i className="fa-solid fa-magnifying-glass mask"></i>
             </button>
           </div>
+          <fieldset className="flex flex-col justify-left items-left gap-6 font-bold w-1/2 login rounded-lg p-4 mb-10">
+            <legend className="flex text-left text-2xl mask w-full">Category</legend>
+            {categories.map((category) => (
+              <div key={category.id}>
+                <label
+                  htmlFor={category.id + category.name}
+                  className={
+                    categoryValue?.id === category.id
+                      ? 'text-orange-400 font-bold cursor-pointer'
+                      : 'cursor-pointer'
+                  }
+                >
+                  {category.name}
+                </label>
+                <input
+                  type="radio"
+                  name="category"
+                  value={category.id}
+                  checked={categoryValue?.id === category.id}
+                  id={category.id + category.name}
+                  style={{ display: 'none' }}
+                  onChange={() => {
+                    setCategoryValue(category);
+                  }}
+                />
+              </div>
+            ))}
+            <button
+              type="submit"
+              className="bg-orange-500 w-32 h-10 rounded-lg font-semibold text-xl border border-black login btn-search"
+            >
+              Filter
+            </button>
+          </fieldset>
         </Form>
         {isLogged && (
           <div className="flex justify-center items-center flex-row gap-5">

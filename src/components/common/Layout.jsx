@@ -8,9 +8,9 @@ import { useSelector } from 'react-redux';
 const Layout = () => {
   const navigate = useNavigate();
   const [isCartVisible, setIsCartVisible] = useState(false);
-  const isLogged = useSelector(state => state.user.isLogged);
+  const isLogged = useSelector((state) => state.user.isLogged);
   const cartHandleClick = () => {
-    if (isLogged) setIsCartVisible(!isCartVisible)
+    if (isLogged) setIsCartVisible(!isCartVisible);
     else navigate('/login');
   };
 

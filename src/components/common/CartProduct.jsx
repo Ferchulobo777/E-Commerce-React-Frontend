@@ -24,7 +24,7 @@ const CartProduct = ({ product }) => {
   return (
     <article>
       <div className="relative flex flex-row gap-5">
-        <div className="w-1/3">
+        <div className="w-3/4 h-1/2 object-contain">
           <img src={product.images[0].url} alt={product.title} />
         </div>
         <div>
@@ -47,15 +47,15 @@ const CartProduct = ({ product }) => {
             </button>
           </div>
         </div>
-        <div className="flex flex-row gap-5 absolute right-0 bottom-0">
+        <div className="flex flex-row gap-5 justify-center items-center mt-16">
           <button
-            className="bg-blue-500 text-white btn-search rounded p-1"
+            className="w-10 h-10 bg-blue-500 text-white btn-search rounded p-1"
             onClick={updateHandleClick}
           >
             <i className="bx bxs-cart-add mask"></i>
           </button>
           <button
-            className="bg-red-500 text-white btn-search rounded p-1"
+            className="bg-red-500 w-10 h-10 text-white btn-search rounded p-1"
             onClick={deleteHandleClick}
             disabled={loading}
           >

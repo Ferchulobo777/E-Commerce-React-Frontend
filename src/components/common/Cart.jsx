@@ -26,7 +26,7 @@ const Cart = ({ isVisible }) => {
         toggleTransform
       }
     >
-      <section className="absolute right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col border-2 border-black rounded-md modal-cart">
+      <section className="absolute top-10 right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col border-2 border-black rounded-md modal-cart">
         <h2 className="text-center text-xl font-semibold">Shopping Cart</h2>
         <div className="mt-5 flex-grow">
           {cart.loading && <Loader />}
@@ -43,7 +43,7 @@ const Cart = ({ isVisible }) => {
             </ul>
           )}
         </div>
-        <section className="flex justify-center w-full flex-col mt-52">
+        <section className="flex justify-center w-full flex-col mb-10">
           <h2 className="text-left mt-2 flex flex-row justify-between w-full">
             <span>Total: </span>
             <span>$ {total}</span>
@@ -51,7 +51,7 @@ const Cart = ({ isVisible }) => {
           <button
             disabled={!cart.products.length}
             onClick={() => dispatch(buyCart({ token }))}
-            className="bg-black text-orange-400 w-full p-2 mt-6 font-extrabold text-2xl rounded-lg flex justify-center btn-cart"
+            className="bg-black text-orange-400 w-full p-2 font-extrabold text-2xl rounded-lg flex justify-center btn-cart"
           >
             <span className="mask">Buy Product</span>
           </button>
