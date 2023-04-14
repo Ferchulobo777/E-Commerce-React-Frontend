@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadCartProducts } from '../../store/slices/cartSlice';
+import { loadCartProducts } from '../../store/slices/cart.slice';
 import CartProduct from './CartProduct';
 import Loader from '../common/Loader';
 

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCart } from '../../services/getCart';
+import { addToCart } from '../../services/addToCart';
 
 const initialState = {
   products: [],
@@ -34,6 +35,7 @@ export const addProductToCart =
   async (dispatch) => {
     dispatch(setCartLoading(true));
     await addToCart({ token, quantity, productId });
+
     dispatch(loadCartProducts(token));
   };
 

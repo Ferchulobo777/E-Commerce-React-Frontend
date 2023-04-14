@@ -1,12 +1,24 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { addProductToCart } from '../../store/slices/cart.slice';
 
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { isLogged, token } = useSelector((state) => state.user);
+  const cart = useSelector((state) => state.cart);
+
+  const isProductInCart = cart.products.some(
+    (cartProduct) => cartProduct.id === product.id,
+  );
+
   const handleAddProductBtn = (e) => {
     e.stopPropagation();
+
+    if (isLogged)
+      dispatch(addProductToCart({ token, quantity: 1, productId: product.id }));
+    else navigate('/login');
   };
 
   return (
@@ -30,12 +42,16 @@ const ProductCard = ({ product }) => {
             <span className="text-orange-400 text-xl font-bold">$</span> {product.price}
           </p>
         </div>
-        <button
-          onClick={handleAddProductBtn}
-          className="cursor-pointer w-3/4 h-16 bg-orange-400 rounded-lg btn-search mt-5 font-bold ml-5"
-        >
-          Add to Cart <i className="fa-solid fa-cart-shopping mask"></i>
-        </button>
+        {!isProductInCart && (
+          <button
+            onClick={handleAddProductBtn}
+            className="cursor-pointer w-3/4 h-16 bg-orange-400 rounded-lg btn-search mt-5 font-bold ml-5"
+            disabled={cart.loading}
+          >
+            Add to Cart <i className="fa-solid fa-cart-shopping mask"></i>
+          </button>
+        )}
+        {isProductInCart && <h2>This products is the cart</h2>}
       </div>
     </article>
   );

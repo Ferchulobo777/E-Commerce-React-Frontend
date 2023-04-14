@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { reset } from '../store/slices/user.slice';
 import { Form, useLoaderData } from 'react-router-dom';
 import ProductCard from '../components/common/ProductCard';
+import { loadCartProducts } from '../store/slices/cart.slice';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const isLogged = useSelector((state) => state.user.isLogged);
+  const { isLogged, token } = useSelector((state) => state.user.isLogged);
   const { products, categories, category, title } = useLoaderData();
 
   const [categoryValue, setcategoryValue] = useState(category || null);
@@ -15,6 +16,10 @@ const Home = () => {
   const handleChangeName = (e) => {
     setnameValue(e.target.value);
   };
+
+  useEffect(() => {
+    if (isLogged) dispatch(loadCartProducts(token));
+  }, []);
 
   useEffect(() => {
     setnameValue(title);

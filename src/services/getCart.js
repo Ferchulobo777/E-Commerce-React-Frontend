@@ -6,7 +6,11 @@ export const getCart = async (token) => {
       headers: { Authorization: `Bearer ${token}` },
     });
 
-    return res.data;
+    return res.data.map((cartProduct) => ({
+      ...cartProduct.product,
+      cartId: cartProduct.id,
+      quantity: cartProduct.quantity,
+    }));
   } catch (error) {
     console.error(error);
   }
