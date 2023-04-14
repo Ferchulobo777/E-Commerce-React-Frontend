@@ -73,7 +73,7 @@ const ProductCard = ({ product }) => {
             Add to Cart <i className="fa-solid fa-cart-shopping mask"></i>
           </button>
         )}
-        {isProductInCart && <h2>This products is the cart</h2>}
+        {isProductInCart && <h2>This product is in your Cart Shopping now</h2>}
       </div>
     </motion.article>
   );

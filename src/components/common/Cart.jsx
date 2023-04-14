@@ -17,7 +17,7 @@ const Cart = ({ isVisible }) => {
 
   useEffect(() => {
     if (isVisible) dispatch(loadCartProducts(token));
-  }, [isVisible]);
+  }, [dispatch, isVisible, token]);
 
   return (
     <div
@@ -26,12 +26,12 @@ const Cart = ({ isVisible }) => {
         toggleTransform
       }
     >
-      <section className="absolute top-10 right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col border-2 border-black rounded-md modal-cart">
+      <section className="absolute top-10 right-0 max-w-[350px] w-full h-full bg-orange-400/80 sm:w-1/2 lg:w-2/5 p-4 flex flex-col border-2 border-black rounded-md modal-cart overflow-y-auto">
         <h2 className="text-center text-xl font-semibold">Shopping Cart</h2>
         <div className="mt-5 flex-grow">
           {cart.loading && <Loader />}
           {!cart.loading && !cart.products.length && (
-            <h2 className="text-md font-bold">Your cart es Empty</h2>
+            <h2 className="text-md font-bold">Your shopping cart is empty</h2>
           )}
           {!cart.loading && cart.products.length && (
             <ul>

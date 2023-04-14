@@ -100,7 +100,7 @@ const Home = () => {
         </ul>
         {!products.length && (
           <p className="flex w-full justify-center items-center text-xl text-orange-400 font-bold">
-            No product matches the search parameter{' '}
+            There are no products found in search with that name{' '}
             <span className="text-red-500">"{nameValue}"</span>
           </p>
         )}
