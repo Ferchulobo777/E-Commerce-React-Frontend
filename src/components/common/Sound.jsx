@@ -39,7 +39,7 @@ const Sound = ({ src }) => {
   };
   return (
     <button
-      className="flex justify-center items-center p-4 h-full button text-white text-2xl sm:ml-8 md:ml-12 lg:ml-16 xl:ml-24 2xl:ml-28 mask"
+      className="flex justify-center items-center p-3 mx-2 mr-4 h-full button text-white text-2xl sm:mx-4 lg:mx-8 xl:mx-12 2xl:mx-14 mask"
       onClick={toggleSound}
     >
       <FontAwesomeIcon
