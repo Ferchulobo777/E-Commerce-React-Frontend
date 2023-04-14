@@ -8,7 +8,7 @@ const Cart = ({ isVisible }) => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
   const cart = useSelector((state) => state.cart);
-  const toggleTransform = isVisible ? 'translate-x-0' : '';
+  const toggleTransform = isVisible ? 'translate-x-0' : 'translate-x-full';
 
   const total = cart.products.reduce(
     (sum, product) => sum + product.quantity * Number(product.price),
@@ -22,7 +22,7 @@ const Cart = ({ isVisible }) => {
   return (
     <div
       className={
-        'fixed inset-0 top-28 bg-[rgba(0,0,0,0.45)] transition-transform duration-500 backdrop-blur-sm translate-x-full' +
+        'fixed inset-0 top-20 bg-[rgba(0,0,0,0.45)] transition-transform duration-500 backdrop-blur-sm ' +
         toggleTransform
       }
     >
@@ -45,7 +45,7 @@ const Cart = ({ isVisible }) => {
         </div>
         <section className="flex justify-center w-full flex-col mt-52">
           <h2 className="text-left mt-2 flex flex-row justify-between w-full">
-            <span>Total:</span>
+            <span>Total: </span>
             <span>$ {total}</span>
           </h2>
           <button

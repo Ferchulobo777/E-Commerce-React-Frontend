@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
-  addProductToCart, updateQuantityProductCart
+  addProductToCart,
+  updateQuantityProductCart,
 } from '../../store/slices/cart.slice';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';

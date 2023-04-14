@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset } from '../store/slices/user.slice';
-import { Form, useLoaderData } from 'react-router-dom';
+import { useLoaderData, Form } from 'react-router-dom';
 import ProductCard from '../components/common/ProductCard';
 import { loadCartProducts } from '../store/slices/cart.slice';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { isLogged, token } = useSelector((state) => state.user.isLogged);
+  const { isLogged, token } = useSelector((state) => state.user);
   const { products, categories, category, title } = useLoaderData();
-
-  const [categoryValue, setcategoryValue] = useState(category || null);
-  const [nameValue, setnameValue] = useState(title ?? '');
+  const [categoryValue, setCategoryValue] = useState(category ?? null);
+  const [nameValue, setNameValue] = useState(title ?? '');
 
   const handleChangeName = (e) => {
-    setnameValue(e.target.value);
+    setNameValue(e.target.value);
   };
 
   useEffect(() => {
@@ -22,66 +21,75 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setnameValue(title);
+    setCategoryValue(category);
+  }, [category]);
+
+  useEffect(() => {
+    setNameValue(title);
   }, [title]);
 
   return (
-    <section className="mt-40 flex flex-col justify-center items-center">
-      {isLogged && (
-        <button
-          className="bg-red-500 font-semibold w-20 h-10 hover:saturate-200 border border-black hover:font-bold mb-20 mt-4 rounded-lg flex justify-center items-center"
-          onClick={() => dispatch(reset())}
-        >
-          <i className="fa-solid fa-right-from-bracket text-2xl"></i>
-        </button>
-      )}
-      <section>
-        <Form>
-          <div className="w-full flex flex-row gap-2">
+    <section className="mt-20 flex flex-col justify-center items-center">
+      <section className='flex flex-row justify-around w-full ml-4 mr-4'>
+        <fieldset className="flex flex-col justify-left items-left gap-6 font-bold border border-black w-1/6 login rounded-lg p-4">
+          <legend className="flex text-left text-xl mask w-full">Category</legend>
+          {categories.map((category) => (
+            <div key={category.id}>
+              <label
+                htmlFor={category.id + category.name}
+                className={
+                  categoryValue?.id === category.id
+                    ? 'text-orange-400 font-bold cursor-pointer'
+                    : 'cursor-pointer'
+                }
+              >
+                {category.name}
+              </label>
+              <input
+                type="radio"
+                name="category"
+                value={category.id}
+                checked={categoryValue?.id === category.id}
+                id={category.id + category.name}
+                style={{ display: 'none' }}
+                onChange={() => {
+                  setCategoryValue(category);
+                }}
+              />
+            </div>
+          ))}
+          <button
+            type="submit"
+            className="bg-orange-500 w-32 h-10 rounded-lg font-semibold text-xl border border-black login btn-search"
+          >
+            Filter
+          </button>
+        </fieldset>
+        <Form className="flex flex-row w-1/2 gap-96 border border-black items-center login rounded-lg">
+          <div className="w-full h-12 flex flex-row gap-2 justify-center">
             <input
               type="search"
               value={nameValue}
               onChange={handleChangeName}
               name="title"
               placeholder="what are you looking for?"
-              className="p-2 w-60 sm:w-96 border-4 border-orange-400 rounded-lg placeholder:text-md sm:placeholder:text-xl "
+              className="p-2 w-60 h-12 sm:w-96 border-4 border-orange-400 rounded-lg placeholder:text-md sm:placeholder:text-xl placeholder:mask"
             />
-            <button className="w-16 bg-orange-400 rounded-lg btn-search">
+            <button className="w-16 h-12 bg-orange-400 rounded-lg btn-search">
               <i className="fa-solid fa-magnifying-glass mask"></i>
             </button>
           </div>
-          <fieldset>
-            <legend>Category</legend>
-            {categories.map((category) => (
-              <div key={category.id}>
-                <label
-                  htmlFor={category.id + category.name}
-                  className={
-                    categoryValue?.id === category.id
-                      ? 'text-orange-400 font-bold cursor-pointer'
-                      : 'cursor-pointer'
-                  }
-                >
-                  {category.name}
-                </label>
-                <input
-                  type="radio"
-                  name="category"
-                  value={category.id}
-                  checked={categoryValue?.id === category.id}
-                  id={category.id + category.name}
-                  style={{ display: 'none' }}
-                  onChange={() => {
-                    setcategoryValue(category);
-                  }}
-                />
-              </div>
-            ))}
-          </fieldset>
-          <button type="submit" className="bg-blue-500">
-            Filter
-          </button>
         </Form>
+        {isLogged && (
+          <div className="flex justify-center items-center">
+            <button
+              className="bg-red-500 font-semibold w-20 h-10 hover:saturate-200 border border-black hover:font-bold mt-4 rounded-lg flex justify-center items-center btn-search"
+              onClick={() => dispatch(reset())}
+            >
+              <i className="fa-solid fa-right-from-bracket text-2xl"></i>
+            </button>
+          </div>
+        )}
       </section>
       <section className="w-full flex px-2 py-2 flex-col">
         <ul className="flex flex-row flex-wrap justify-evenly items-center gap-4 w-full">
