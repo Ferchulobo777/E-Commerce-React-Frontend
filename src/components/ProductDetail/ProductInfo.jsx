@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
-  addProductToCart,
-  updateQuantityProductCart,
+  addProductToCart, updateQuantityProductCart
 } from '../../store/slices/cart.slice';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -15,7 +14,7 @@ const ProductInfo = ({ product }) => {
   const cart = useSelector((state) => state.cart);
   const [counter, setCounter] = useState(1);
 
-  const cartProduct = cart.product.find((x) => x.id === product.id);
+  const cartProduct = cart.products.find((x) => x.id === product.id);
 
   const lessOne = () => {
     const newCounter = counter - 1;

@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  deleteProductFromCart,
-  updateQuantityProductCart,
-} from '../../store/slices/cart.slice';
+import { deleteProductFromCart } from '../../store/slices/cart.slice';
+import { updateQuantityCart } from '../../services/updateQuantityCart';
 
 const CartProduct = ({ product }) => {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(product.quantity);
   const token = useSelector((state) => state.user.token);
   const loading = useSelector((state) => state.cart.loading);
+
   const deleteHandleClick = () => {
     dispatch(deleteProductFromCart({ token, cartProductId: product.cartId }));
   };
+
+  const updateHandleClick = () => {
+    dispatch(updateQuantityCart({ token, cartProductId: product.cartId, quantity }));
+  };
+
   const lessOne = () => {
     const newQuantity = quantity - 1;
     if (newQuantity >= 1) setQuantity(newQuantity);
-  };
-  const updateHandleClick = () => {
-    dispatch(
-      updateQuantityProductCart({ token, cartProductId: product.cartId, quantity }),
-    );
   };
   return (
     <article>

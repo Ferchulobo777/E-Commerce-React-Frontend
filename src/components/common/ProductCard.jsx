@@ -15,7 +15,6 @@ const ProductCard = ({ product }) => {
 
   const handleAddProductBtn = (e) => {
     e.stopPropagation();
-
     if (isLogged)
       dispatch(addProductToCart({ token, quantity: 1, productId: product.id }));
     else navigate('/login');
