@@ -3,6 +3,7 @@ import { getCart } from '../../services/getCart';
 import { addToCart } from '../../services/addToCart';
 import { deleteFromCart } from '../../services/deleteFromCart';
 import { updateQuantityCart } from '../../services/updateQuantityCart';
+import { createPurchase } from '../../services/createPurchase';
 
 const initialState = {
   products: [],
@@ -69,4 +70,11 @@ export const updateQuantityProductCart =
 
     dispatch(loadCartProducts(token));
   };
+export const buyCart = (token) => async (dispatch) => {
+  dispatch(setCartLoading(true));
+  await createPurchase(token);
+
+  dispatch(loadCartProducts(token));
+};
+
 export default cartSlice.reducer;

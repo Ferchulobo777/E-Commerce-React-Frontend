@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadCartProducts } from '../../store/slices/cart.slice';
+import { buyCart, loadCartProducts } from '../../store/slices/cart.slice';
 import CartProduct from './CartProduct';
 import Loader from '../common/Loader';
 
@@ -49,7 +49,11 @@ const Cart = ({ isVisible }) => {
             <span>Total:</span>
             <span>$ {total}</span>
           </h2>
-          <button className="bg-black text-orange-400 w-full p-2 mt-6 font-extrabold text-2xl rounded-lg flex justify-center btn-cart">
+          <button
+            disabled={!cart.products.length}
+            onClick={() => dispatch(buyCart(token))}
+            className="bg-black text-orange-400 w-full p-2 mt-6 font-extrabold text-2xl rounded-lg flex justify-center btn-cart"
+          >
             <span className="mask">Buy Product</span>
           </button>
         </section>
