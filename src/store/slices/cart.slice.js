@@ -7,15 +7,12 @@ import { createPurchase } from '../../services/createPurchase';
 
 const initialState = {
   products: [],
-
   loading: false,
 };
 
 const cartSlice = createSlice({
   name: 'cart',
-
   initialState,
-
   reducers: {
     setCartProducts(state, action) {
       state.products = action.payload;
@@ -30,14 +27,10 @@ const cartSlice = createSlice({
 const { setCartLoading, setCartProducts } = cartSlice.actions;
 
 export const loadCartProducts = (token) => async (dispatch) => {
-  // Establecer el loading a true
-
   dispatch(setCartLoading(true));
 
   const cart = await getCart(token);
-
   dispatch(setCartProducts(cart));
-
   dispatch(setCartLoading(false));
 };
 
@@ -45,7 +38,6 @@ export const addProductToCart =
   ({ token, quantity, productId }) =>
   async (dispatch) => {
     dispatch(setCartLoading(true));
-
     await addToCart({ token, quantity, productId });
 
     dispatch(loadCartProducts(token));
@@ -55,14 +47,12 @@ export const deleteProductFromCart =
   ({ token, cartProductId }) =>
   async (dispatch) => {
     dispatch(setCartLoading(true));
-
     await deleteFromCart({ token, cartProductId });
 
     dispatch(loadCartProducts(token));
   };
 
 export const updateQuantityProductCart =
-  () =>
   ({ token, cartProductId, quantity }) =>
   async (dispatch) => {
     dispatch(setCartLoading(true));
@@ -70,11 +60,14 @@ export const updateQuantityProductCart =
 
     dispatch(loadCartProducts(token));
   };
-export const buyCart = (token) => async (dispatch) => {
-  dispatch(setCartLoading(true));
-  await createPurchase(token);
 
-  dispatch(loadCartProducts(token));
-};
+export const buyCart =
+  ({ token }) =>
+  async (dispatch) => {
+    dispatch(setCartLoading(true));
+    await createPurchase(token);
+
+    dispatch(loadCartProducts(token));
+  };
 
 export default cartSlice.reducer;

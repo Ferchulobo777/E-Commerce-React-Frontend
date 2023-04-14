@@ -5,11 +5,13 @@ const emptyState = {
   firstName: '',
   lastName: '',
   email: '',
+  phone: '',
   token: '',
   isLogged: false,
 };
 
 const initialStateLocalStorage = JSON.parse(localStorage.getItem('userData'));
+
 const userSlice = createSlice({
   name: 'user',
   initialState: initialStateLocalStorage || emptyState,
@@ -26,8 +28,9 @@ const userSlice = createSlice({
       stateLocalStorage.lastName = newUserData.lastName;
       state.email = newUserData.email;
       stateLocalStorage.email = newUserData.email;
+
       localStorage.removeItem('userData');
-      localStorage.setItem('userData', JSON.stringify(state));
+      localStorage.setItem('userData', JSON.stringify(stateLocalStorage));
     },
 
     updateToken(state, action) {
@@ -35,17 +38,21 @@ const userSlice = createSlice({
       const stateLocalStorage = structuredClone({ ...state });
       state.token = newToken;
       stateLocalStorage.token = newToken;
+
       localStorage.removeItem('userData');
-      localStorage.setItem('userData', JSON.stringify(state));
+      localStorage.setItem('userData', JSON.stringify(stateLocalStorage));
     },
 
     logIn(state) {
       const stateLocalStorage = structuredClone({ ...state });
+
       state.isLogged = true;
       stateLocalStorage.isLogged = true;
+
       localStorage.removeItem('userData');
-      localStorage.setItem('userData', JSON.stringify(state));
+      localStorage.setItem('userData', JSON.stringify(stateLocalStorage));
     },
+
     reset() {
       localStorage.removeItem('userData');
       return emptyState;
@@ -54,5 +61,4 @@ const userSlice = createSlice({
 });
 
 export const { updateUserData, updateToken, logIn, reset } = userSlice.actions;
-
 export default userSlice.reducer;

@@ -16,7 +16,6 @@ const Cart = ({ isVisible }) => {
   );
 
   useEffect(() => {
-    //Ejecutar carga de los productos del Carrito
     if (isVisible) dispatch(loadCartProducts(token));
   }, [isVisible]);
 

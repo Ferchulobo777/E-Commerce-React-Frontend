@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { loginServices } from '../../services/loginServices';
+import { loginService } from '../../services/loginServices';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
 import { logIn, updateToken, updateUserData } from '../../store/slices/user.slice';
@@ -24,7 +24,7 @@ const LoginForm = () => {
   };
 
   const login = async () => {
-    const loginData = await loginServices(loginFormData);
+    const loginData = await loginService(loginFormData);
     const userData = {
       id: loginData.user.id,
       firstName: loginData.user.firstName,
