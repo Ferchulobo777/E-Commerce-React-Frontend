@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProductFromCart } from '../../store/slices/cart.slice';
-import { updateQuantityCart } from '../../services/updateQuantityCart';
+import { updateQuantityProductCart } from '../../store/slices/cart.slice';
 
 const CartProduct = ({ product }) => {
   const dispatch = useDispatch();
@@ -14,7 +14,9 @@ const CartProduct = ({ product }) => {
   };
 
   const updateHandleClick = () => {
-    dispatch(updateQuantityCart({ token, cartProductId: product.cartId, quantity }));
+    dispatch(
+      updateQuantityProductCart({ token, cartProductId: product.cartId, quantity }),
+    );
   };
 
   const lessOne = () => {
@@ -51,6 +53,7 @@ const CartProduct = ({ product }) => {
           <button
             className="w-10 h-10 bg-blue-500 text-white btn-search rounded p-1"
             onClick={updateHandleClick}
+            disabled={loading}
           >
             <i className="bx bxs-cart-add mask"></i>
           </button>
