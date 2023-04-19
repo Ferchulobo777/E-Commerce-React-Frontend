@@ -44,7 +44,7 @@ const ProductCard = ({ product }) => {
     <motion.article
       key={product.id}
       onClick={() => navigate(`/products/${product.id}`)}
-      className="w-11/12 sm:w-3/5 lg:w-2/5 xl:w-1/4 bg-white p-10 cursor-pointer product-card m-10 object-contain max-h-[470px] min-h-[470px]"
+      className="w-11/12 sm:w-3/5 lg:w-2/5 xl:w-1/4 bg-white p-10 cursor-pointer product-card m-10 object-contain max-h-[490px] min-h-[490px]"
       variants={cardVariants}
       initial="initial"
       whileHover="hover"

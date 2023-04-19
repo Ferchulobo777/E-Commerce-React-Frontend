@@ -44,7 +44,7 @@ const ProductInfo = ({ product }) => {
       <h2 className="text-4xl text-center mb-10">{product.brand}</h2>
       <h2 className="text-4xl text-center mb-20">{product.title}</h2>
       <Carousel
-        className="flex flex-col object-contain justify-center items-center h-1/4 w-1/2"
+        className="flex flex-col object-contain justify-center items-center h-1/4 w-full md:w-1/2"
         showArrows={true}
       >
         {product.images.map((img) => (
