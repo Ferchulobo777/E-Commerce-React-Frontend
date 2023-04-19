@@ -41,15 +41,19 @@ const ProductInfo = ({ product }) => {
 
   return (
     <section className="flex flex-col justify-center items-center">
+      <h2 className="text-4xl text-center mb-10">{product.brand}</h2>
       <h2 className="text-4xl text-center mb-20">{product.title}</h2>
-      <Carousel showArrows={true}>
+      <Carousel
+        className="flex flex-col object-contain justify-center items-center h-1/4 w-1/2"
+        showArrows={true}
+      >
         {product.images.map((img) => (
           <div
-            className="w-1/2 h-60 flex flex-row justify-center object-contain"
+            className="w-full h-60 flex flex-row justify-center mb-5 mt-5 mx-auto"
             key={img.id}
           >
             <img
-              className="flex justify-center items-center object-contain"
+              className="w-full flex justify-center items-center object-contain"
               src={img.url}
               alt=""
             />
