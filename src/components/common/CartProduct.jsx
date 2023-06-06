@@ -27,7 +27,7 @@ const CartProduct = ({ product }) => {
     <article>
       <div className="relative flex flex-row gap-5">
         <div className="w-3/4 h-1/2 object-contain">
-          <img src={product.images[0].url} alt={product.title} />
+          <img src={product.productImgs[2].url} alt={product.title} />
         </div>
         <div>
           <h2>{product.title}</h2>

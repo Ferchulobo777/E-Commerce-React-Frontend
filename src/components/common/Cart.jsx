@@ -49,7 +49,7 @@ const Cart = ({ isVisible }) => {
             <span>$ {total}</span>
           </h2>
           <button
-            disabled={!cart.products.length}
+            disabled={!cart.products?.length}
             onClick={() => dispatch(buyCart({ token }))}
             className="bg-black text-orange-400 w-full p-2 font-extrabold text-2xl rounded-lg flex justify-center btn-cart"
           >

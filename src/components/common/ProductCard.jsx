@@ -52,7 +52,7 @@ const ProductCard = ({ product }) => {
       <div>
         <img
           className="w-full h-48 object-contain flex justify-center items-center"
-          src={product.images[0].url}
+          src={product.productImgs[2].url}
           alt={product.title}
         />
       </div>

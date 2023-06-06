@@ -17,8 +17,9 @@ const Footer = () => {
               <i className="fa-solid fa-heart"></i>
             </strong>
           </a>{' '}
-          React-Academlo
+          React-Node-JS
         </p>
+        <p className="contact">Academlo</p>
         <p className="contact">Contactame</p>
         <div className="social_media">
           <div className="container_icons">
