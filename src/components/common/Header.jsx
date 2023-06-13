@@ -1,6 +1,5 @@
 import React from 'react';
 import Sound from './Sound';
-import sound from '../../assets/audio/Compras.mp3';
 import { Link } from 'react-router-dom';
 
 const Header = ({ cartHandleClick }) => {
@@ -10,7 +9,7 @@ const Header = ({ cartHandleClick }) => {
         <h2 className="flex w-1/2 text-xl text-white p-3 sm:text-3xl 2xl:text-5xl">
           <Link to="/">e-commerce</Link>
         </h2>
-        <Sound autoPlay src={sound} />
+        <Sound autoPlay src="./media/Compras.mp3" />
         <Link to="/login">
           <button className="flex justify-center items-center p-3 h-full button text-white text-2xl sm:mx-4 md:mx-6 lg:mx-8 xl:mx-10 2xl:mx-14">
             <i className="fa-solid fa-user mask"></i>
