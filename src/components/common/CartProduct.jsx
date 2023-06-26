@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteProductFromCart } from '../../store/slices/cart.slice';
-import { updateQuantityProductCart } from '../../store/slices/cart.slice';
+import {
+  deleteProductFromCart,
+  updateQuantityProductCart,
+} from '../../store/slices/cart.slice';
 
 const CartProduct = ({ product }) => {
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const CartProduct = ({ product }) => {
     <article>
       <div className="relative flex flex-row gap-5">
         <div className="w-3/4 h-1/2 object-contain">
-          <img src={product.productImgs[2].url} alt={product.title} />
+          <img src={product.images[2].url} alt={product.title} />
         </div>
         <div>
           <h2>{product.title}</h2>

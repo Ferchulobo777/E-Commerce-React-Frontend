@@ -5,21 +5,7 @@ const Footer = () => {
     <section className="footer mt-10">
       <div className="container_footer">
         <h3 className="academlo my_name flex justify-center mt-6">Fernando Rodriguez</h3>
-        <p className="text_1">
-          Proyecto Final{' '}
-          <a
-            href="https://www.academlo.com/"
-            rel="noreferrer"
-            target="_blank"
-            className="heart2"
-          >
-            <strong className="heart rounded-full text-red-500">
-              <i className="fa-solid fa-heart"></i>
-            </strong>
-          </a>{' '}
-          React-Node-JS
-        </p>
-        <p className="contact">Academlo</p>
+        <p className="text_1">Proyecto Full-Stack React-Node-JS</p>
         <p className="contact">Contactame</p>
         <div className="social_media">
           <div className="container_icons">

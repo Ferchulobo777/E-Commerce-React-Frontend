@@ -12,7 +12,7 @@ const Purchases = () => {
       setPurchases(purchases);
     };
     loadPurchases();
-  }, []);
+  }, [token]);
 
   return (
     <section>
@@ -23,7 +23,7 @@ const Purchases = () => {
             <div className="flex justify-between items-center pb-2 px-4">
               <div>
                 <img
-                  src={purchase.product?.productImgs[2]?.url}
+                  src={purchase.product?.images[2]?.url}
                   alt={purchase.product?.title}
                   className="w-24 h-24 object-contain rounded"
                 />

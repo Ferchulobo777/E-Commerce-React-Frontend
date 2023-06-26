@@ -52,13 +52,13 @@ const ProductCard = ({ product }) => {
       <div>
         <img
           className="w-full h-40 object-contain flex justify-center items-center"
-          src={product.productImgs[0].url}
+          src={product.images[0].url}
           alt={product.title}
         />
       </div>
       <div>
         <h2 className="text-semibold text-xl mt-5 text-center">{product.title}</h2>
-        <h2 className="text-center" >{product.brand}</h2>
+        <h2 className="text-center">{product.brand}</h2>
         <div className="flex flex-row justify-between mt-3">
           <h3 className="mask text-xl font-semibold">Price</h3>
           <p className="text-xl font-semibold">

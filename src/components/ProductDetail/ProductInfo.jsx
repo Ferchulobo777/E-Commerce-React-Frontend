@@ -47,7 +47,7 @@ const ProductInfo = ({ product }) => {
         className="flex flex-col object-contain justify-center items-center h-1/4 w-full md:w-1/2"
         showArrows={true}
       >
-        {product.productImgs?.map((img) => (
+        {product.images?.map((img) => (
           <div
             className="w-full h-60 flex flex-row justify-center mb-5 mt-5 mx-auto"
             key={img.id}
